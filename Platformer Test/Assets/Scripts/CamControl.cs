@@ -8,6 +8,8 @@ public class CamControl : MonoBehaviour
     // Start is called before the first frame update
     private Vector3 playerPos;
     private Vector3 camPos;
+    public float offsetX;
+    public float offsetY;
     // Update is called once per frame
 
     /*
@@ -22,7 +24,7 @@ public class CamControl : MonoBehaviour
         camPos = transform.position; // 포맷은 
         
         Vector3 Line = (playerPos - camPos)/15; 
-        Vector3 Final = Line + camPos;
+        Vector3 Final = Line + camPos + new Vector3(offsetX,offsetY,0f);;
         Final.z = -10f;
         transform.position = Final; 
     }
