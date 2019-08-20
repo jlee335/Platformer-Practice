@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BasicMovement : MonoBehaviour
 {
@@ -22,6 +23,13 @@ public class BasicMovement : MonoBehaviour
         if(hit.gameObject.tag == "Floor"){
             flying = false; // flying변수 전환으로 jump 가능
         }
+
+        // 화면 밖으로 나감
+        if (hit.gameObject.tag == "GameBorder")
+        {
+            SceneManager.LoadScene("Main"); // Main 씬 재시작
+        }
+        
         //기타등등 (아이템 줍기, 적 공격 받기. 등등등등...)
 
     }

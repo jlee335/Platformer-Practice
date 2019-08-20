@@ -10,6 +10,7 @@ TagManager:
   - bg_2
   - bg_1
   - Floor
+  - GameBorder
   layers:
   - Default
   - TransparentFX
