@@ -10,6 +10,7 @@ TagManager:
   - bg_2
   - bg_1
   - Floor
+  - CamControl
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - CamControl
   - 
   - 
   - 
@@ -70,4 +71,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1049477955
+    locked: 0
+  - name: CamAreas
+    uniqueID: 3097497405
     locked: 0
