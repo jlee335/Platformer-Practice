@@ -9,10 +9,7 @@ public class CamControl : MonoBehaviour
     1. 플레이어를 단순히 따라가는 스크립트
     2. Focal Point 에 중점으로 반응하는 스크립트
     */
-
-
-
-    enum CameraMode {
+    public enum CameraMode : int{
         FollowCam,
         FocalCam,
         TransitionCam,
@@ -41,7 +38,7 @@ public class CamControl : MonoBehaviour
         // 더 나은 알고리즘이 있으면 추가 바람
         // NOTE: If cameraMode should change, give focusPos reference FIRST.
 
-        if(cameraMode == FollowCam){
+        if(cameraMode == CameraMode.FollowCam){
             playerPos = player.transform.position;
             camPos = transform.position; // 포맷은 
             Vector3 Line = (playerPos - camPos)/15; 
@@ -50,12 +47,14 @@ public class CamControl : MonoBehaviour
             transform.position = Final; 
             
 
-        }else if(cameraMode == FocalCam){
+        }else if(cameraMode == CameraMode.FocalCam){
             playerPos = player.transform.position;
-            focusPos = 
+            // focusPos 는 이미 주어져 있어야 함! 
+            // focusPos 와 playerPos 사이의 Vector 를 만들고, focusPos 로부터 시작 1/10 거리로 카메라를 이동시키자
+
             camPos = transform.position; // 포맷은 
-            Vector3 Line = (playerPos - camPos)/15; 
-            Vector3 Final = Line + camPos + new Vector3(offsetX,offsetY,0f);;
+            Vector3 Line = (focusPos - playerPos)/10; 
+            Vector3 Final = Line + focusPos;;
             Final.z = -10f;
             transform.position = Final; 
 
