@@ -24,9 +24,11 @@ public class CamControl : MonoBehaviour
     public float offsetY;
     public CameraMode cameraMode;
 
+    
+
 
     // Variables for FocalCam
-    private Vector3 focusPos;
+    public Vector3 focusPos; // 트리거 안에 플레이어가 올 경우, focusPos를 바꾸고, 그 다음 cameraMode 를 변경한다. 
 
     /*
         플레이어 위치를 따라가되, 유기적으로 따라가게 하면 보기 좋다.
@@ -53,15 +55,17 @@ public class CamControl : MonoBehaviour
             // focusPos 와 playerPos 사이의 Vector 를 만들고, focusPos 로부터 시작 1/10 거리로 카메라를 이동시키자
 
             camPos = transform.position; // 포맷은 
-            Vector3 Line = (focusPos - playerPos)/10; 
-            Vector3 Final = Line + focusPos;;
-            Final.z = -10f;
-            transform.position = Final; 
+            Vector3 Line = (-focusPos + playerPos)/10; // 플레이어 - 중심점 간 거리의 1/10 만큼이 카메라 중심이다
+            Vector3 modPos = Line + focusPos;; // 
+            modPos.z = -10f; 
+            // 천천히 modPos 로 이동하는 방식
 
-
+            // 
+            Vector3 final = modPos +  (transform.position - modPos)*126/128; // 움직여야 하는 거리의 1/10 만큼만 이동하자
+            transform.position = final; // 
             
         }else{ // by default let this be TransitionCam
-
+            // 
         }
 
     }

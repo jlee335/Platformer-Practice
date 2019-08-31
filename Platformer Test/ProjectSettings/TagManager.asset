@@ -19,7 +19,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - NoSee
   - 
   - 
   - 
@@ -70,4 +70,10 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1049477955
+    locked: 0
+  - name: Front Player Sprites
+    uniqueID: 799678861
+    locked: 0
+  - name: Overlay
+    uniqueID: 3488099021
     locked: 0
